@@ -1,0 +1,15 @@
+.page { max-width: 1280px; margin: 0 auto; padding: 2rem 1.25rem 3rem; color: var(--clr-text); }
+.header { margin-bottom: 1.5rem; } .header h1 { margin: .55rem 0 .35rem; font-size: 2rem; } .header p, .note { color: var(--clr-text-muted); line-height: 1.5; }
+.badge { display: inline-block; padding: .25rem .55rem; border: 1px solid var(--clr-primary); border-radius: 999px; color: var(--clr-primary); font-size: .73rem; font-weight: 700; }
+.layout { display: grid; grid-template-columns: minmax(260px, .7fr) minmax(0, 1.3fr); gap: 1.25rem; align-items: start; }
+.card, .results, .section, .summary { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius-lg); }
+.card { padding: 1.25rem; } .card h2, .section h2 { margin-top: 0; font-size: 1rem; }
+.card label { display: block; margin: 1rem 0 .4rem; color: var(--clr-text-muted); font-size: .85rem; font-weight: 600; }
+.card input, .card select { box-sizing: border-box; width: 100%; padding: .7rem; color: var(--clr-text); background: var(--clr-surface-2); border: 1px solid var(--clr-border); border-radius: var(--radius-md); }
+.card button { width: 100%; margin-top: 1.2rem; padding: .75rem; border: 0; border-radius: var(--radius-md); background: var(--clr-primary); color: #061019; font-weight: 800; cursor: pointer; } .card button:disabled { opacity: .65; cursor: wait; }
+.results { min-height: 280px; padding: 1.25rem; } .empty { display: grid; min-height: 240px; place-items: center; text-align: center; color: var(--clr-text-muted); }
+.summary { padding: 1rem; border-color: var(--clr-primary); } .summary span { color: var(--clr-primary); font-weight: 700; } .summary strong { display: block; margin-top: .4rem; } .summary p { margin-bottom: 0; }
+.section { margin-top: 1rem; padding: 1rem; } .section ul { margin: 0; padding-left: 1.15rem; } .section li { margin: .45rem 0; color: var(--clr-text-muted); line-height: 1.45; }
+.twoColumns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; } .twoColumns .section { min-width: 0; }
+.error, .partial { padding: .7rem; border-radius: var(--radius-md); line-height: 1.4; } .error { color: #fca5a5; background: rgba(239, 68, 68, .12); } .partial { color: #fcd34d; background: rgba(245, 158, 11, .12); }
+@media (max-width: 760px) { .layout, .twoColumns { grid-template-columns: 1fr; } .page { padding: 1.25rem .8rem 2rem; } }
