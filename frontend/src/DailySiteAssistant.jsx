@@ -2,6 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import styles from './DailySiteAssistant.module.css'
 import ErrorBoundary from './ErrorBoundary'
+import { apiUrl } from './api'
 
 const ACTIVITIES = ['Concreting', 'Masonry', 'Excavation', 'Reinforcement', 'Formwork', 'Plastering', 'Waterproofing']
 const CONDITIONS = ['Normal', 'Rainy', 'Hot', 'Windy', 'Restricted Access', 'Unsafe']
@@ -26,7 +27,7 @@ function DailySiteAssistantInner() {
     setError('')
     setPlan(null)
     try {
-      const response = await axios.post('/api/site-assistant', {
+      const response = await axios.post(apiUrl('/api/site-assistant'), {
         activity,
         labour_count: parsedLabourCount,
         site_condition: siteCondition,

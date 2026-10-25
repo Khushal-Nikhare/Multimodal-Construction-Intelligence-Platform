@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Send, Bot, User, Sparkles, HelpCircle, AlertCircle, RefreshCw } from 'lucide-react'
 import styles from './ConstructionChatbot.module.css'
 import ErrorBoundary from './ErrorBoundary'
+import { apiUrl } from './api'
 
 const STARTER_QUERIES = [
   'Can I remove props from a 4m RCC slab after 5 days?',
@@ -54,7 +55,7 @@ function ConstructionChatbotInner() {
 
     try {
       // Step 4: Submit POST request to /api/chatbot via Axios
-      const res = await axios.post('/api/chatbot', {
+      const res = await axios.post(apiUrl('/api/chatbot'), {
         message: messageText,
         session_id: sessionId,
         history: newHistory

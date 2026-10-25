@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import styles from './ProjectPlanner.module.css'
 import ErrorBoundary from './ErrorBoundary'
+import { apiUrl } from './api'
 
 const CONSTRUCTION_GRADES = [
   { value: 'standard_residential', label: 'Standard Residential (RCC)' },
@@ -66,7 +67,7 @@ function ProjectPlannerInner() {
     setErrorMsg(null)
 
     try {
-      const response = await fetch('/api/planning/plan', {
+      const response = await fetch(apiUrl('/api/planning/plan'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import styles from './WeatherAdvisor.module.css'
 import ErrorBoundary from './ErrorBoundary'
+import { apiUrl } from './api'
 
 const ACTIVITIES = ['Slab Concreting', 'Excavation', 'Crane Lifting', 'Scaffolding', 'Masonry', 'Roofing', 'Waterproofing', 'Painting']
 const RECOMMENDATION_STYLE = {
@@ -27,7 +28,7 @@ function WeatherAdvisorInner() {
     setError('')
     setAdvisory(null)
     try {
-      const response = await axios.get('/api/weather/advisory', { params: { city: city.trim(), activity }, timeout: 20_000 })
+      const response = await axios.get(apiUrl('/api/weather/advisory'), { params: { city: city.trim(), activity }, timeout: 20_000 })
       if (response.data?.status !== 'success' || !response.data?.data) {
         throw new Error(response.data?.error?.message || 'Weather advisory could not be generated.')
       }

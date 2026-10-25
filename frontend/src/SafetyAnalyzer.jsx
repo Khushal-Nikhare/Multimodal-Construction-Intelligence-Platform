@@ -10,9 +10,10 @@
 import { useRef, useState, useCallback } from 'react';
 import axios from 'axios';
 import styles from './SafetyAnalyzer.module.css';
+import { apiUrl } from './api';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
-const API_URL = '/api/safety/analyze';
+const API_URL = apiUrl('/api/safety/analyze');
 const MAX_FILE_BYTES = 10 * 1024 * 1024; // 10 MB
 const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
 

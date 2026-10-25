@@ -2,6 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import styles from './Valuation.module.css'
 import ErrorBoundary from './ErrorBoundary'
+import { apiUrl } from './api'
 
 const PROPERTY_TYPES = [
   { value: 'residential_apartment', label: 'Residential Apartment' },
@@ -153,7 +154,7 @@ function ValuationInner() {
         formData.append('amenities', selectedAmenities.join(','))
       }
 
-      const response = await axios.post('/api/real-estate-valuation', formData)
+      const response = await axios.post(apiUrl('/api/real-estate-valuation'), formData)
 
       if (response.data && response.data.status === 'success') {
         setValuationData(response.data.data)
